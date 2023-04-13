@@ -1,0 +1,21 @@
+.homePage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    height: 100vh;
+
+    &__link {
+        padding: 10%;
+        width: 35%;
+        margin: 5%;
+        border-radius: 83% 17% 84% 16% / 15% 86% 14% 85%;
+        text-align: center;
+        font-size: 2.5em;
+        text-decoration: none;
+        background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+        color: black;
+    }
+}
