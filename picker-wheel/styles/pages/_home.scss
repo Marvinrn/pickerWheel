@@ -34,7 +34,7 @@ $debug: false;
         transform: translateX(-50%);
         display: flex;
         gap: 10px;
-        z-index: 10000;
+        z-index: 100;
 
         label {
             width: 20px;
@@ -115,11 +115,13 @@ $debug: false;
                 font-weight: 600;
                 font-size: 1.2em;
                 padding: 15px 35px;
+                margin-top: 10px;
                 color: $bgColor;
                 border: 0.15em solid $bgColor;
                 border-radius: calc(0.75em + 0.5em + 0.15em);
                 transition: 1s;
                 cursor: pointer;
+
 
                 &:before,
                 &:after {

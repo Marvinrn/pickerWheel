@@ -1,8 +1,9 @@
-
+import NavBar from '@/components/NavBar'
 export default function CoinFlip() {
     return (
-        <>
-            <p>Coin Flip page</p>
-        </>
+        <div className='coinFlipPage'>
+            <NavBar />
+            coinFlip
+        </div>
     )
 }

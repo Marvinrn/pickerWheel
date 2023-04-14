@@ -1,24 +1,69 @@
 .navBar {
-    width: 100%;
     display: flex;
-    justify-content: space-around;
-    background: lightyellow;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
 
     &__links {
-        padding: 50px 30px;
-        text-decoration: none;
+        position: relative;
+        margin: 10px 60px;
+        width: 60px;
+        height: 60px;
+        background: WHITE;
+        border-radius: 60px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+
+        &:hover {
+            width: 200px;
+            box-shadow: 0 0 35px white;
+
+            .navBar__image {
+                transform: scale(0);
+                transition-delay: 0.25s;
+            }
+
+            .navBar__title {
+                transform: scale(1);
+                transition-delay: 0.25s;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 60px;
+            background: linear-gradient(45deg, #cf9ca6, #b20a2c);
+            opacity: 0;
+            transition: 0.5s;
+            transition-delay: 0.25s;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    &__image {
+        transition: 0.5s;
+        transition-delay: 0.25s;
+    }
+
+    &__title {
+        position: absolute;
         text-align: center;
-    }
-
-    &__home {
-        background: linear-gradient(90deg, #8f94fb, #4e54c8);
-        width: 50%;
-        border-right: 1px solid black;
-    }
-
-    &__coinFlip {
-        background: linear-gradient(90deg, #4e54c8, #8f94fb);
-        width: 50%;
-        border-left: 1px solid Black;
+        font-weight: 600;
+        color: white;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transform: scale(0);
+        transition: 0.5s;
+        transition-delay: 0s;
+        overflow-wrap: break-word;
     }
 }
