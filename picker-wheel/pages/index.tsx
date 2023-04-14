@@ -1,6 +1,8 @@
 
 import Link from "next/link"
-
+import Image from "next/image"
+import colorWheel from '../images/colorWheel.png'
+import coin from '../images/euro-dynamic-color.png'
 
 export default function Home() {
   return (
@@ -15,18 +17,20 @@ export default function Home() {
               <label htmlFor="coinFlip"></label>
             </div>
             <div className="homePage__content">
-              <div className="box pickerWheel">
+              <div className="box">
                 <div className="box__content">
+                  <Image className="box__image" src={colorWheel} alt="image de roue" width={250} height={250} />
                   <h2>Picker Wheel</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit maiores ducimus expedita minus corrupti explicabo officiis, praesentium, laborum veritatis sint nemo? Sint, cumque hic ipsum exercitationem laboriosam repellendus id accusantium?</p>
-                  <button className="pickerWheelBtn">Faites tourner la roue ! </button>
+                  <p>Vous avez besoin de faire un tirage au sort ludique parmis plusieurs choix ? Faites donc tourner la roue et elle decidra de manière totalement aléatoire et sans tricherie du grand gagnant!!</p>
+                  <Link href={"/pickerWheel"}><button className="pickerWheelBtn">Faites tourner la roue ! </button></Link>
                 </div>
               </div>
-              <div className="box coinFlip">
+              <div className="box">
                 <div className="box__content">
+                  <Image className="box__image" src={coin} alt="image de pièce" width={250} height={250} />
                   <h2>Pile ou Face</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae deleniti dolores, quidem at sapiente reiciendis. Placeat, exercitationem veniam. Ipsum cupiditate nobis molestias recusandae error sapiente, placeat molestiae labore voluptatem saepe.</p>
-                  <button className="coinFlipBtn">Lancez la pièce!</button>
+                  <p>Si vous avez du mal a prendre une decision, laissez donc le hasard choisir à votre place et lancez la pièce !! Le pile ou face peut aussi servir pour vous departager en cas de dilemme {'"'}Vous ne savez pas qui doit manger la dernière part de gateau entre vous et votre amis ? Lancez donc la pièce et le hasard decidera du vainqueur !!{'"'} .</p>
+                  <Link href={"/coinFlip"}><button className="coinFlipBtn">Lancez la pièce!</button></Link>
                 </div>
               </div>
             </div>
