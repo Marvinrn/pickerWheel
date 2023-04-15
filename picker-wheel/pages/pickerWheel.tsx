@@ -5,7 +5,6 @@ export default function PickerWheel() {
     return (
         <div className='wheelPage'>
             <NavBar />
-            pickerWheel
         </div>
     )
 }

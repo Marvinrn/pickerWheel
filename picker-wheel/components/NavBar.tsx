@@ -9,7 +9,7 @@ const NavBar = () => {
     const router = useRouter()
 
     return (
-        <>
+        <header>
             {router.pathname === "/pickerWheel" ?
                 <div className="navBar navBar--bg">
                     <Link className="navBar__pickerWheelNav" href={"/"}>
@@ -59,7 +59,7 @@ const NavBar = () => {
                     }
                 </div>
             }
-        </>
+        </header>
     );
 };
 
