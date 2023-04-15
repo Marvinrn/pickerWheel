@@ -8,6 +8,7 @@ export default function PickerWheel() {
             <div className='wheelPage__container'>
                 <section className='wheelPage__wheelSide'>
                     <h1>Picker Wheel</h1>
+
                 </section>
                 <aside className='wheelPage__promptSide'>
                     <input
