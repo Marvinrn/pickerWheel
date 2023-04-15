@@ -9,7 +9,7 @@
         margin: 20px 60px;
         width: 60px;
         height: 60px;
-        background: white;
+        background: #17202a;
         border-radius: 60px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         display: flex;
@@ -19,7 +19,7 @@
 
         &:hover {
             width: 200px;
-            box-shadow: 0 0 35px white;
+            box-shadow: 0 0 35px #17202a;
 
             .navBar__image {
                 transform: scale(0);
@@ -72,7 +72,7 @@
         margin: 20px 60px;
         width: 60px;
         height: 60px;
-        background: WHITE;
+        background: #17202a;
         border-radius: 60px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         display: flex;
@@ -82,7 +82,7 @@
 
         &:hover {
             width: 200px;
-            box-shadow: 0 0 35px white;
+            box-shadow: 0 0 35px #17202a;
 
             .navBar__image {
                 transform: scale(0);
