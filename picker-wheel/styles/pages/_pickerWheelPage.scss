@@ -15,7 +15,6 @@
     &__wheelSide {
         width: 60%;
         height: 100%;
-        // background: greenyellow;
 
         h1 {
             margin: auto;
@@ -31,40 +30,103 @@
 
     &__promptSide {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         width: 40%;
         height: 100%;
         background: #cf9ca6;
         border-radius: 25px;
         text-align: center;
+        overflow: scroll;
+        scrollbar-color: #b20a2c;
+        scrollbar-track-color: #17202a;
 
-
-        input {
-            background-color: #17202a;
-            color: white;
-            font-size: 1em;
-            margin: 40px 0;
-            padding: 10px;
-            width: 50%;
-            height: 5%;
-            border: none;
-            outline: none;
+        &::-webkit-scrollbar {
+            width: 3px;
+            height: 0;
         }
 
-        button {
-            margin: 40px 0;
-            height: 5%;
-            width: 45px;
-            border: none;
-            cursor: pointer;
-            background: #17202a;
-            color: white;
-            border-left: 1px solid white;
+        &::-webkit-scrollbar-track {
+            opacity: 0;
+        }
 
-            &:hover {
-                opacity: 0.8;
+        &::-webkit-scrollbar-thumb {
+            background-color: #b20a2c;
+            border-radius: 60px;
+        }
+
+        .mainInput {
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            z-index: 1;
+            top: 0;
+            align-items: center;
+            background: #cf9ca6;
+            // width: 100%;
+
+            input {
+                background-color: #17202a;
+                color: white;
+                font-size: 1em;
+                margin: 40px 0;
+                padding: 10px;
+                width: 50%;
+                border: none;
+                outline: none;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            button {
+                margin: 40px 0;
+                width: 45px;
+                height: 33%;
+                border: none;
+                cursor: pointer;
+                background: #17202a;
+                color: white;
+                border-left: 1px solid white;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
 
+        .secondaryInputs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+
+            .wheelPage__choiceInput {
+                background-color: #17202a;
+                color: white;
+                font-size: 1em;
+                padding: 10px;
+                width: 50%;
+                border: none;
+                outline: none;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            .cross {
+                height: 100%;
+                width: 45px;
+                border: none;
+                cursor: pointer;
+                background: #b20a2c;
+                color: white;
+                border-left: 1px solid white;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
     }
 }
