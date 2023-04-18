@@ -2,6 +2,7 @@ import NavBar from '@/components/NavBar'
 import React, { useEffect, useState } from 'react'
 
 
+
 export default function PickerWheel() {
     const [item, setItem] = useState("")
     const [array, setArray] = useState<any[]>([])
@@ -10,20 +11,21 @@ export default function PickerWheel() {
     const handleOnSubmit = (e: any) => {
         e.preventDefault()
 
+        // const data = { item }
+        // if (data) {
+        //     setArray((arr) => [...arr, data])
+        //     setItem('')
+        // }
         const data = { item }
-        if (data) {
-            setArray((arr) => [...arr, data])
-            setItem('')
-        }
+        setArray([...array, data])
+        setItem('')
     }
 
     useEffect(() => {
         localStorage.setItem('segment', JSON.stringify(array))
         console.log(array);
-        console.log(item);
+    }, [array])
 
-
-    }, [item, array])
 
     return (
         <main className='wheelPage'>
@@ -33,7 +35,7 @@ export default function PickerWheel() {
                     <h1>Picker Wheel</h1>
                     <div className='wheel__container'>
                         <div className='wheel__spinBtn'>spin</div>
-                        <ul className='wheel__wheel'>
+                        {/* <ul className='wheel__wheel'>
                             {
                                 array?.map((segment, index) => (
                                     <li
@@ -55,6 +57,30 @@ export default function PickerWheel() {
                                     </li>
                                 ))
                             }
+                        </ul> */}
+                        <ul className='wheel__wheel'>
+                            <svg style={{
+                                width: '100%',
+                                height: '100%'
+                            }}>
+                                <circle cx="50%" cy='50%' r='50%' />
+                                {
+                                    array.map((segment, index) => (
+                                        <text
+                                            key={index}
+                                            x={250 + (250 * 0.8) * Math.cos((array.indexOf(segment) * (360 / array.length) - (360 / array.length) / 2 * (Math.PI / 180)))}
+                                            y={250 + (250 * 0.8) * Math.sin((array.indexOf(segment) * (360 / array.length) - (360 / array.length) / 2 * (Math.PI / 180)))}
+                                            fill="white"
+                                            textAnchor="middle"
+                                            dominantBaseline="middle"
+                                            style={{ background: segmentClr[array.indexOf(segment) % segmentClr.length] }}
+                                        >
+                                            {segment.item}
+                                        </text>
+                                    ))
+                                }
+
+                            </svg>
                         </ul>
                     </div>
                 </section>

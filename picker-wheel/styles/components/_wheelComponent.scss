@@ -130,7 +130,7 @@
             border: 1px solid black;
             position: relative;
             padding: 0;
-            margin: 1em auto;
+            // margin: 1em auto;
             border-radius: 50%;
             list-style: none;
             overflow: hidden;
@@ -143,17 +143,47 @@
                 width: 50%;
                 height: 50%;
                 transform-origin: 0 100%;
+                border: 3px solid white;
             }
 
             .wheel__values {
-                position: absolute;
-                left: -100%;
-                width: 200%;
-                height: 200%;
-                text-align: center;
-                display: block;
-                transform: skewY(60deg) rotate(15deg);
+                // position: absolute;
+                // left: -100%;
+                // width: 200%;
+                // height: 200%;
+                // text-align: center;
+                // display: block;
+                // transform: skewY(60deg) rotate(15deg);
             }
         }
 
+    }
+
+    .circle-container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+    }
+
+    .circle-container svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .circle-container button {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .circle-container button:focus {
+        outline: none;
     }
