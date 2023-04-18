@@ -27,28 +27,33 @@ const Circle: React.FC<CircleProps> = ({ radius, values }) => {
           `;
                 const segmentColor = segmentColors[index % segmentColors.length];
 
-                const textRadius = radius * 0.8;
+                const textRadius = radius * 0.7;
                 const textAngle = startAngle + (endAngle - startAngle) / 2;
                 const x = 200 + textRadius * Math.cos(textAngle);
                 const y = 200 + textRadius * Math.sin(textAngle);
                 const textAnchor = 'start';
 
+                const formattedValue = value.length > 15 ? `${value.slice(0, 15)}...` : value;
+
                 return (
                     <React.Fragment key={index}>
                         <path d={segmentPath} fill={segmentColor} stroke="white" strokeWidth="3" />
                         <text
+                            className='wheel__values'
                             x={x}
                             y={y}
-                            dx={-value.length * 3} // adjust position based on word length
+                            dx={-formattedValue.length * 3} // adjust position based on word length
                             transform={`rotate(${textAngle * 180 / Math.PI}, ${x}, ${y})`}
+                            fontSize={'0.9em'}
                             textAnchor={textAnchor}
                             fill='white'>
-                            {value}
+                            {formattedValue}
                         </text>
                     </React.Fragment>
                 );
             })}
         </svg>
+
 
 
     );
