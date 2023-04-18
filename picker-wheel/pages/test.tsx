@@ -1,64 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/NavBar'
-
-interface CircleProps {
-    radius: number;
-    values: string[];
-}
-
-
-const Circle: React.FC<CircleProps> = ({ radius, values }) => {
-    const step = 360 / values.length;
-    const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
-
-
-    return (
-        <svg width={radius * 2} height={radius * 2} className='wheel__wheel'>
-            {values.map((value, index) => {
-                const startAngle = (index * step - step / 2) * (Math.PI / 180);
-                const endAngle = ((index + 1) * step - step / 2) * (Math.PI / 180);
-                const largeArcFlag = endAngle - startAngle <= Math.PI ? 0 : 1;
-                const segmentPath = `
-            M 200,200
-            L ${200 + radius * Math.cos(startAngle)}, ${200 + radius * Math.sin(startAngle)}
-            A ${radius},${radius} 0 ${largeArcFlag},1 ${200 + radius * Math.cos(endAngle)}, ${200 + radius * Math.sin(endAngle)}
-            L 200,200
-            Z
-          `;
-                const segmentColor = segmentColors[index % segmentColors.length];
-
-                const textRadius = radius * 0.7;
-                const textAngle = startAngle + (endAngle - startAngle) / 2;
-                const x = 200 + textRadius * Math.cos(textAngle);
-                const y = 200 + textRadius * Math.sin(textAngle);
-                const textAnchor = 'start';
-
-                const formattedValue = value.length > 15 ? `${value.slice(0, 15)}...` : value;
-
-                return (
-                    <React.Fragment key={index}>
-                        <path d={segmentPath} fill={segmentColor} stroke="white" strokeWidth="3" />
-                        <text
-                            className='wheel__values'
-                            x={x}
-                            y={y}
-                            dx={-formattedValue.length * 3} // adjust position based on word length
-                            transform={`rotate(${textAngle * 180 / Math.PI}, ${x}, ${y})`}
-                            fontSize={'0.9em'}
-                            textAnchor={textAnchor}
-                            fill='white'>
-                            {formattedValue}
-                        </text>
-                    </React.Fragment>
-                );
-            })}
-        </svg>
-
-
-
-    );
-};
-
+import WheelComponent from '@/components/WheelComponent'
 
 export default function PickerWheel() {
 
@@ -96,7 +38,7 @@ export default function PickerWheel() {
                     <h1>Picker Wheel</h1>
                     <div className='wheel__container'>
                         <div className='wheel__spinBtn'>spin</div>
-                        <Circle radius={200} values={valueArray} />
+                        <WheelComponent radius={200} values={valueArray} />
                     </div>
                 </section>
                 <aside className='wheelPage__promptSide'>
