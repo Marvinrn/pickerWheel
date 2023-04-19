@@ -23,8 +23,21 @@ export default function PickerWheel() {
         setInputValue(e.target.value)
     }
 
+    const handleOnUpdateValues = (newValue: string, index: number) => {
+        setValueArray(prevValueArray => {
+            const newValues = [...prevValueArray];
+            newValues[index] = newValue;
+            return newValues
+
+        })
+    }
+
+
+
+
     useEffect(() => {
         localStorage.setItem('segment', JSON.stringify(valueArray))
+        localStorage.getItem('segment')
         console.log(valueArray);
     }, [valueArray])
 
@@ -52,9 +65,10 @@ export default function PickerWheel() {
                             <div key={index} className='secondaryInputs'>
                                 <input
                                     className='wheelPage__choiceInput'
+                                    name={`${valueArray.indexOf(segment)}`}
                                     type='text'
                                     value={segment}
-                                    onChange={handleOnChange}
+                                    onChange={(e) => { handleOnUpdateValues(e.target.value, index) }}
                                 />
                                 <button onClick={() => { setValueArray(valueArray.filter((segment) => valueArray.indexOf(segment) !== index)) }} className="cross" type='button'>X</button>
                             </div>
