@@ -1,5 +1,10 @@
 .footer {
+    margin-top: 50px;
     width: 100%;
-    height: 20%;
-    background-color: yellow;
+    height: 200px;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+}
+
+.footer--bg {
+    background: linear-gradient(90deg, #b20a2c, #cf9ca6);
 }

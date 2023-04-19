@@ -26,10 +26,7 @@ export default function PickerWheel() {
     useEffect(() => {
         localStorage.setItem('segment', JSON.stringify(valueArray))
         console.log(valueArray);
-        console.log(inputValue);
-
-
-    }, [inputValue, valueArray])
+    }, [valueArray])
 
     return (
         <main className='wheelPage'>
@@ -59,7 +56,7 @@ export default function PickerWheel() {
                                     value={segment}
                                     onChange={handleOnChange}
                                 />
-                                <button className="cross" type='button'>X</button>
+                                <button onClick={() => { setValueArray(valueArray.filter((segment) => valueArray.indexOf(segment) !== index)) }} className="cross" type='button'>X</button>
                             </div>
                         ))
                     }
