@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/NavBar'
 import WheelComponent from '@/components/WheelComponent'
+import Footer from '@/components/Footer'
 
 export default function PickerWheel() {
 
@@ -33,6 +34,7 @@ export default function PickerWheel() {
     return (
         <main className='wheelPage'>
             < NavBar />
+            <h1>Picker Wheel</h1>
             <div className='wheelPage__container'>
                 <WheelComponent radius={200} values={valueArray} />
                 <aside className='wheelPage__promptSide'>
@@ -63,6 +65,7 @@ export default function PickerWheel() {
                     }
                 </aside>
             </div>
+            <Footer />
         </main >
     )
 }

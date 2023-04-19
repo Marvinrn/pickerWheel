@@ -8,6 +8,15 @@ $font-1: sans-serif;
     padding: 0;
 }
 
+html,
 body {
     font-family: $font-1;
+    height: 100%;
+    overflow: auto;
+    background: #17202a;
+}
+
+#__next {
+    height: 100%;
+    overflow: auto;
 }

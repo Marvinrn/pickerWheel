@@ -14,11 +14,10 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
     const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
 
     return (
-        <section className='wheelPage__wheelSide'>
-            <h1>Picker Wheel</h1>
-            <div className='wheel__container'>
-                <div className='wheel__spinBtn'>spin</div>
-                <svg width={radius * 2} height={radius * 2} className='wheel__wheel'>
+        <section className='wheelSide'>
+            <div className='wheelSide__container'>
+                <div className='wheelSide__spinBtn'>spin</div>
+                <svg viewBox={`0 0 ${radius * 2} ${radius * 2}`} className='wheelSide__wheel'>
 
                     {/* Cette ligne utilise la méthode map pour parcourir chaque élément du tableau values et exécuter une fonction pour chacun. Cette fonction prend deux arguments : la value actuelle (l'élément du tableau) et son index dans le tableau. */}
                     {values.map((value, index) => {
@@ -76,7 +75,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                             <React.Fragment key={index}>
                                 <path d={segmentPath} fill={segmentColor} stroke="white" strokeWidth="3" />
                                 <text
-                                    className='wheel__values'
+                                    className='wheelSide__values'
                                     x={x}
                                     y={y}
                                     dx={-formattedValue.length * 3} // adjust position based on word length
