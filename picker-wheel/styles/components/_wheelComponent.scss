@@ -54,4 +54,32 @@
         margin: 1em auto;
         border-radius: 50%;
     }
+
+    &__wheelSpin {
+        position: relative;
+        background: #444;
+        box-shadow: 0 0 0 5px #444,
+            0 0 0 15px rgb(54, 146, 36),
+            0 0 0 18px black;
+        border: 1px solid black;
+        position: relative;
+        padding: 0;
+        margin: 1em auto;
+        border-radius: 50%;
+        // animation: start-rotate 1s linear infinite;
+    }
+
+    // @keyframes start-rotate {
+    //     100% {
+    //         transform: rotate(360deg);
+    //     }
+    // }
+}
+
+.wheelSide__wheel {
+    transition: transform 5s ease-in-out;
+}
+
+.wheelSide__wheel.is-spinning {
+    transform: rotate(2160deg);
 }

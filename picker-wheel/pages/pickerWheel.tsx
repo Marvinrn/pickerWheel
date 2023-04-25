@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/NavBar'
-import WheelComponent from '@/components/WheelComponent'
+
 import Footer from '@/components/Footer'
+import WheelComponent from './test'
 
 export default function PickerWheel() {
 
@@ -23,6 +24,8 @@ export default function PickerWheel() {
         setInputValue(e.target.value)
     }
 
+
+    // fonction handleOnUpdateValues pour modifier les valeurs de chaque segment via son input qui lui est associé
     const handleOnUpdateValues = (newValue: string, index: number) => {
         setValueArray(prevValueArray => {
             const newValues = [...prevValueArray];
@@ -31,9 +34,6 @@ export default function PickerWheel() {
 
         })
     }
-
-
-
 
     useEffect(() => {
         localStorage.setItem('segment', JSON.stringify(valueArray))
