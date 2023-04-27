@@ -21,14 +21,14 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
         let count = 0;
         let intervalId = setInterval(() => {
             segments.forEach((segment, index) => {
-                const color = index === count % segments.length ? '#f4d03f' : segmentColors[index % segmentColors.length];
+                const color = index === count % segments.length ? '#ff6166' : segmentColors[index % segmentColors.length];
                 segment.setAttribute('fill', color);
             });
             count++;
             if (count >= segments.length * 5 + targetIndex) {
                 clearInterval(intervalId);
                 segments.forEach((segment, index) => {
-                    const color = index === targetIndex ? '#f4d03f' : segmentColors[index % segmentColors.length];
+                    const color = index === targetIndex ? '#ff6166' : segmentColors[index % segmentColors.length];
                     segment.setAttribute('fill', color);
                 });
             }
@@ -47,11 +47,11 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                         const endAngle = ((index + 1) * step - step / 2) * (Math.PI / 180);
                         const largeArcFlag = endAngle - startAngle <= Math.PI ? 0 : 1;
                         const segmentPath = `
-              M ${radius},${radius}
-              L ${radius + radius * Math.cos(startAngle)}, ${radius + radius * Math.sin(startAngle)}
-              A ${radius},${radius} 0 ${largeArcFlag},1 ${radius + radius * Math.cos(endAngle)}, ${radius + radius * Math.sin(endAngle)}
-              L ${radius},${radius}
-              Z`;
+                        M ${radius},${radius}
+                        L ${radius + radius * Math.cos(startAngle)}, ${radius + radius * Math.sin(startAngle)}
+                        A ${radius},${radius} 0 ${largeArcFlag},1 ${radius + radius * Math.cos(endAngle)}, ${radius + radius * Math.sin(endAngle)}
+                        L ${radius},${radius}
+                        Z`;
                         const segmentColor = segmentColors[index % segmentColors.length];
                         const textRadius = radius * 0.65;
                         const textAngle = startAngle + (endAngle - startAngle) / 2;
@@ -63,7 +63,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                         const rotation = `rotate(${textAngle * 180 / Math.PI}, ${x}, ${y - 3})`;
                         return (
                             <React.Fragment key={index}>
-                                <path d={segmentPath} fill={isSelected ? '#f4d03f' : segmentColor} stroke="white" strokeWidth="3" />
+                                <path d={segmentPath} fill={isSelected ? '#ff6166' : segmentColor} stroke="white" strokeWidth="3" />
                                 <text
                                     className='wheelSide__values'
                                     x={x}
@@ -73,7 +73,6 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                                     fontSize={'0.85em'}
                                     textAnchor={textAnchor}
                                     fill={'white'}>
-                                    {/* fill={isSelected ? 'black' : 'white'}> */}
                                     {formattedValue}
                                 </text>
                             </React.Fragment>
