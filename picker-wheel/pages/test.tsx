@@ -53,14 +53,14 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
               L ${radius},${radius}
               Z`;
                         const segmentColor = segmentColors[index % segmentColors.length];
-                        const textRadius = radius * 0.7;
+                        const textRadius = radius * 0.65;
                         const textAngle = startAngle + (endAngle - startAngle) / 2;
                         const x = radius + textRadius * Math.cos(textAngle);
-                        const y = radius + textRadius * Math.sin(textAngle);
+                        const y = radius + textRadius * Math.sin(textAngle) + 2;
                         const textAnchor = 'start';
                         const formattedValue = value.length > 15 ? `${value.slice(0, 15)}...` : value;
                         const isSelected = selectedValue === value;
-                        const rotation = `rotate(${textAngle * 180 / Math.PI}, ${x}, ${y})`;
+                        const rotation = `rotate(${textAngle * 180 / Math.PI}, ${x}, ${y - 3})`;
                         return (
                             <React.Fragment key={index}>
                                 <path d={segmentPath} fill={isSelected ? '#f4d03f' : segmentColor} stroke="white" strokeWidth="3" />
@@ -70,7 +70,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                                     y={y}
                                     dx={-formattedValue.length * 3}
                                     transform={`${rotation}`}
-                                    fontSize={'0.9em'}
+                                    fontSize={'0.85em'}
                                     textAnchor={textAnchor}
                                     fill={'white'}>
                                     {/* fill={isSelected ? 'black' : 'white'}> */}
