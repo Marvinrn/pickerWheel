@@ -14,22 +14,27 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
     const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
 
     const [selectedValue, setSelectedValue] = useState('');
+    const [isSpinning, setIsSpinning] = useState(false)
 
     const handleSpin = () => {
+        if (isSpinning) {
+            return
+        }
+        setIsSpinning(true)
         // Récupère tous les segments de la roue
         const segments = document.querySelectorAll('.wheelSide__wheel path');
-
         // Choisis une valeur aléatoire dans le tableau "values"
         const randomIndex = Math.floor(Math.random() * values.length);
-
         // Récupère la valeur cible correspondant à l'index aléatoire
         const targetValue = values[randomIndex];
-
         // Récupère l'index de la valeur cible dans le tableau "values"
         const targetIndex = values.indexOf(targetValue);
-
         // Met à jour la valeur sélectionnée
         setSelectedValue(targetValue);
+        // Le nombre de tours complets que la roue doit effectuer
+        let cycles = 7;
+        // La durée totale en millisecondes que la roue doit tourner
+        let duration = 3000;
 
         // Initialise les variables "count" et "intervalId"
         let count = 0;
@@ -40,20 +45,19 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                 const color = index === count % segments.length ? '#ff6166' : segmentColors[index % segmentColors.length];
                 segment.setAttribute('fill', color);
             });
-
             // Incrémente "count"
             count++;
-
             // Si le nombre de tours atteint le nombre cible, stoppe l'intervalle et met à jour les couleurs pour indiquer le segment gagnant
-            if (count >= segments.length * 5 + targetIndex) {
+            const stopCount = segments.length * cycles + targetIndex;
+            if (count >= stopCount) {
                 clearInterval(intervalId);
                 segments.forEach((segment, index) => {
                     const color = index === targetIndex ? '#ff6166' : segmentColors[index % segmentColors.length];
                     segment.setAttribute('fill', color);
                 });
+                setIsSpinning(false)
             }
-        }, 100);
-
+        }, duration / (segments.length * cycles));
         // Affiche la valeur cible dans la console
         console.log(targetValue);
     };
@@ -63,7 +67,6 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
             <div className='wheelSide__container'>
                 {/* Bouton pour faire tourner la roue */}
                 <div className='wheelSide__spinBtn' onClick={handleSpin}>spin</div>
-
                 {/* La roue SVG */}
                 <svg viewBox={`0 0 ${radius * 2} ${radius * 2}`} className='wheelSide__wheel'>
                     {values.map((value, index) => {
@@ -120,3 +123,5 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
 };
 
 export default WheelComponent;
+
+
