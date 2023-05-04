@@ -42,9 +42,11 @@ export default function PickerWheel() {
     }, [])
 
     useEffect(() => {
-        if (valueArray.length) {
+        if (valueArray.length > 0) {
             localStorage.setItem('segment', JSON.stringify(valueArray))
             console.log(valueArray);
+        } else {
+            localStorage.removeItem('segment')
         }
     }, [valueArray])
 
