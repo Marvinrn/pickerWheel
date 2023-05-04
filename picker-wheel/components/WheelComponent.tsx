@@ -99,7 +99,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                         // Rend chaque segment et sa valeur à l'intérieur en utilisant des éléments SVG de chemin et de texte
                         return (
                             <React.Fragment key={index}>
-                                <path d={segmentPath} fill={isSelected ? '#ff6166' : segmentColor} stroke="white" strokeWidth="3" />
+                                <path d={segmentPath} fill={isSelected ? '#ff6166' : segmentColor} />
                                 <text
                                     className='wheelSide__values'
                                     x={x}

@@ -35,10 +35,20 @@ export default function PickerWheel() {
     }
 
     useEffect(() => {
-        localStorage.setItem('segment', JSON.stringify(valueArray))
-        localStorage.getItem('segment')
-        console.log(valueArray);
+        const getArray = localStorage.getItem('segment')
+        if (getArray) {
+            setValueArray(JSON.parse(getArray))
+        }
+    }, [])
+
+    useEffect(() => {
+        if (valueArray.length) {
+            localStorage.setItem('segment', JSON.stringify(valueArray))
+            console.log(valueArray);
+        }
     }, [valueArray])
+
+
 
     return (
         <main className='wheelPage'>
