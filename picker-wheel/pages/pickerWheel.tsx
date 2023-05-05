@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import WheelComponent from '../components/WheelComponent'
-import WheelModal from '@/components/WheelModal'
 
 export default function PickerWheel() {
     const [inputValue, setInputValue] = useState("")
@@ -55,7 +54,6 @@ export default function PickerWheel() {
     return (
         <main className='wheelPage'>
             < NavBar />
-            <WheelModal values={valueArray} />
             <h1>Picker Wheel</h1>
             <div className='wheelPage__container'>
                 <WheelComponent radius={200} values={valueArray} />

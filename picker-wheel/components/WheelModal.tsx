@@ -1,19 +1,36 @@
 import React, { useEffect, useRef } from 'react';
 
-interface ModalProps {
-    values: string[];
+type WheelModalProps = {
+    modalIsClose: any
+    value: string
 }
 
-const WheelModal: React.FC<ModalProps> = ({ values }) => {
+const WheelModal: React.FunctionComponent<WheelModalProps> = ({ modalIsClose, value }) => {
+
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        let handler = (event: any) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                modalIsClose(false)
+            }
+        }
+        document.addEventListener("mousedown", handler)
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    }, [modalIsClose])
+
     return (
         <div className='wheelModal'>
-            <div className='wheelModal__content'>
+            <div ref={modalRef} className='wheelModal__content'>
                 <h2 className='wheelModal__title'>Le gagnant est :</h2>
                 <div className='wheelModal__valueContainer'>
-                    <p className='wheelModal__value'> value</p>
+                    <p className='wheelModal__value'> {value}</p>
                 </div>
                 <div className='wheelModal__btnContainer'>
-                    <button className='wheelModal__btn'>
+                    <button className='wheelModal__btn' onClick={() => { modalIsClose(false) }}>
                         fermer
                     </button>
                     <button className='wheelModal__btn'>

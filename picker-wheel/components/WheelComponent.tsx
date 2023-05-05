@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import WheelModal from './WheelModal';
 
 // Ceci est une interface pour les propriétés de la composante Circle. Il spécifie que les propriétés doivent inclure un rayon (radius) qui est un nombre et des valeurs (values) qui est un tableau de chaînes de caractères.
 interface CircleProps {
@@ -11,9 +12,9 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
     // Nous définissons la taille de chaque segment en calculant la différence angulaire entre chaque élément du tableau des valeurs. Ensuite, nous définissons une liste de couleurs pour les segments.
     const step = 360 / values.length;
     const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
-
     const [selectedValue, setSelectedValue] = useState('');
-    const [isSpinning, setIsSpinning] = useState(false)
+    const [isSpinning, setIsSpinning] = useState<boolean>(false)
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
     const handleSpin = () => {
         if (isSpinning) {
@@ -28,6 +29,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
         const targetValue = values[randomIndex];
         // Récupère l'index de la valeur cible dans le tableau "values"
         const targetIndex = values.indexOf(targetValue);
+
         // Met à jour la valeur sélectionnée
         setSelectedValue(targetValue);
         // Le nombre de tours complets que la roue doit effectuer
@@ -55,7 +57,8 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                     segment.setAttribute('fill', color);
                 });
                 setIsSpinning(false)
-                // alert(targetValue) où je vais faire pop le modal pour le gagant
+                // appel du modal pour afficher le gagnant an grand
+                setModalIsOpen(true)
 
 
             }
@@ -66,6 +69,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
 
     return (
         <section className='wheelSide'>
+            {modalIsOpen && <WheelModal value={selectedValue} modalIsClose={setModalIsOpen} />}
             <div className='wheelSide__container'>
                 {/* Bouton pour faire tourner la roue */}
                 <div className='wheelSide__spinBtn' onClick={handleSpin}>spin</div>
