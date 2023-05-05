@@ -3,9 +3,10 @@ import React, { useEffect, useRef } from 'react';
 type WheelModalProps = {
     modalIsClose: any
     value: string
+    onDelete: (value: string) => void;
 }
 
-const WheelModal: React.FunctionComponent<WheelModalProps> = ({ modalIsClose, value }) => {
+const WheelModal: React.FunctionComponent<WheelModalProps> = ({ modalIsClose, value, onDelete }) => {
 
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +23,11 @@ const WheelModal: React.FunctionComponent<WheelModalProps> = ({ modalIsClose, va
         }
     }, [modalIsClose])
 
+    const handleOnDelete = () => {
+        onDelete(value)
+        modalIsClose(false)
+    }
+
     return (
         <div className='wheelModal'>
             <div ref={modalRef} className='wheelModal__content'>
@@ -33,7 +39,7 @@ const WheelModal: React.FunctionComponent<WheelModalProps> = ({ modalIsClose, va
                     <button className='wheelModal__btn' onClick={() => { modalIsClose(false) }}>
                         fermer
                     </button>
-                    <button className='wheelModal__btn'>
+                    <button onClick={handleOnDelete} className='wheelModal__btn'>
                         supprimer
                     </button>
                 </div>

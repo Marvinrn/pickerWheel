@@ -5,10 +5,11 @@ import WheelModal from './WheelModal';
 interface CircleProps {
     radius: number;
     values: string[];
+    setValueArray: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 // Ici, nous créons une composante Circle qui est une fonction fléchée de type React.FC (Functional Component) avec les propriétés spécifiées dans CircleProps. Cette composante prend deux propriétés : le rayon et les valeurs.
-const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
+const WheelComponent: React.FC<CircleProps> = ({ radius, values, setValueArray }) => {
     // Nous définissons la taille de chaque segment en calculant la différence angulaire entre chaque élément du tableau des valeurs. Ensuite, nous définissons une liste de couleurs pour les segments.
     const step = 360 / values.length;
     const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
@@ -56,20 +57,24 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                     const color = index === targetIndex ? '#ff6166' : segmentColors[index % segmentColors.length];
                     segment.setAttribute('fill', color);
                 });
-                setIsSpinning(false)
-                // appel du modal pour afficher le gagnant an grand
-                setModalIsOpen(true)
-
+                setTimeout(() => {
+                    setIsSpinning(false);
+                    // appel du modal pour afficher le gagnant an grand
+                    setModalIsOpen(true);
+                }, 500);
 
             }
         }, duration / (segments.length * cycles));
-        // Affiche la valeur cible dans la console
-        console.log(targetValue);
     };
+
+    const deleteValue = (value: string) => {
+        const newArray = values.filter((val) => val !== value)
+        setValueArray(newArray)
+    }
 
     return (
         <section className='wheelSide'>
-            {modalIsOpen && <WheelModal value={selectedValue} modalIsClose={setModalIsOpen} />}
+            {modalIsOpen && <WheelModal value={selectedValue} modalIsClose={setModalIsOpen} onDelete={deleteValue} />}
             <div className='wheelSide__container'>
                 {/* Bouton pour faire tourner la roue */}
                 <div className='wheelSide__spinBtn' onClick={handleSpin}>spin</div>
@@ -113,6 +118,7 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                                     dx={-formattedValue.length * 3}
                                     transform={`${rotation}`}
                                     fontSize={'0.85em'}
+                                    fontWeight={'600'}
                                     textAnchor={textAnchor}
                                     fill={'white'}>
                                     {formattedValue}

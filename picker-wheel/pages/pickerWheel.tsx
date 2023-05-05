@@ -56,7 +56,7 @@ export default function PickerWheel() {
             < NavBar />
             <h1>Picker Wheel</h1>
             <div className='wheelPage__container'>
-                <WheelComponent radius={200} values={valueArray} />
+                <WheelComponent radius={200} values={valueArray} setValueArray={setValueArray} />
                 <aside className='wheelPage__promptSide'>
                     <form className='mainInput' onSubmit={handleOnSubmit} >
                         <input
