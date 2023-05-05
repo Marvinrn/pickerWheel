@@ -8,7 +8,6 @@ interface CircleProps {
 
 // Ici, nous créons une composante Circle qui est une fonction fléchée de type React.FC (Functional Component) avec les propriétés spécifiées dans CircleProps. Cette composante prend deux propriétés : le rayon et les valeurs.
 const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
-
     // Nous définissons la taille de chaque segment en calculant la différence angulaire entre chaque élément du tableau des valeurs. Ensuite, nous définissons une liste de couleurs pour les segments.
     const step = 360 / values.length;
     const segmentColors = ['#b20a2c', '#17202a', '#cf9ca6'];
@@ -56,6 +55,9 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values }) => {
                     segment.setAttribute('fill', color);
                 });
                 setIsSpinning(false)
+                // alert(targetValue) où je vais faire pop le modal pour le gagant
+
+
             }
         }, duration / (segments.length * cycles));
         // Affiche la valeur cible dans la console
