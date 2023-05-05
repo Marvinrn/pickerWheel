@@ -18,10 +18,14 @@ const WheelComponent: React.FC<CircleProps> = ({ radius, values, setValueArray }
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
     const handleSpin = () => {
-        if (isSpinning) {
+        if (isSpinning || values.length < 2) {
             return
         }
         setIsSpinning(true)
+
+        if (values.length >= 2) {
+
+        }
         // Récupère tous les segments de la roue
         const segments = document.querySelectorAll('.wheelSide__wheel path');
         // Choisis une valeur aléatoire dans le tableau "values"
