@@ -1,4 +1,53 @@
 .coinFlipPage {
-    height: 100vh;
-    background: #17202a;
+    height: 100%;
+
+    h1 {
+        margin: 30px auto auto;
+        padding: 15px;
+        text-align: center;
+        color: white;
+        width: 60%;
+        text-transform: uppercase;
+    }
+
+    &__container {
+        position: relative;
+        background: linear-gradient(90deg, #4e54c8, #8f94fb);
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 20px;
+        width: 60%;
+        height: 60%;
+        border-radius: 25px;
+
+    }
+
+    &__img {
+        margin: auto;
+    }
+}
+
+
+.coinFlipAnimation {
+    margin: auto;
+    animation-name: coinFlip;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+}
+
+@keyframes coinFlip {
+
+    0%,
+    100% {
+        transform: rotateX(0);
+    }
+
+    10% {
+        transform: rotateX(360deg);
+    }
+
+    90% {
+        transform: rotateX(3600deg);
+    }
 }
