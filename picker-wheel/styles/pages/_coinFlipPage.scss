@@ -23,23 +23,40 @@
 
     }
 
+    &__coin {
+        position: relative;
+        margin: auto;
+        transform-style: preserve-3d;
+
+        div {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+
+        }
+    }
+
     &__img {
         margin: auto;
     }
 }
 
-
-.coinFlipAnimation {
-    margin: auto;
-    animation-name: coinFlip;
-    animation-duration: 4s;
-    animation-timing-function: linear;
+.hidden {
+    visibility: hidden;
 }
 
-@keyframes coinFlip {
+.pile {
+    transform: rotateX(180deg);
+}
 
-    0%,
-    100% {
+.animate-pile {
+    animation: flipPile 4s ease;
+}
+
+@keyframes flipPile {
+
+    0% {
         transform: rotateX(0);
     }
 
@@ -51,3 +68,64 @@
         transform: rotateX(3600deg);
     }
 }
+
+
+.animate-face {
+    animation: flipFace 4s ease;
+}
+
+@keyframes flipFace {
+
+    0% {
+        transform: rotateX(0);
+    }
+
+    10% {
+        transform: rotateX(540deg);
+    }
+
+    90% {
+        transform: rotateX(3780deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .coinFlipAnimation {
+//     margin: auto;
+//     animation-name: coinFlip;
+//     animation-duration: 4s;
+//     animation-timing-function: linear;
+// }
+
+// @keyframes coinFlip {
+
+//     0%,
+//     100% {
+//         transform: rotateX(0);
+//     }
+
+//     10% {
+//         transform: rotateX(360deg);
+//     }
+
+//     90% {
+//         transform: rotateX(3600deg);
+//     }
+// }

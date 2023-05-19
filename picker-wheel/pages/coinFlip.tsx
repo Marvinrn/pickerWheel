@@ -2,6 +2,8 @@ import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import face from '../images/Face.png'
+import pile from '../images/Pile.png'
 
 export default function CoinFlip() {
     const [result, setResult] = useState<string>('Face.png')
@@ -37,13 +39,33 @@ export default function CoinFlip() {
             <NavBar />
             <h1>Pile ou Face</h1>
             <div className='coinFlipPage__container'>
-                <Image
-                    src={require(`../images/${result}`)}
-                    alt='image de roue'
-                    width={250}
-                    height={250}
-                    className={isFlipping ? 'coinFlipAnimation' : 'coinFlipPage__img'}
-                />
+                <div className='coinFlipPage__coin'>
+                    <div className={isFlipping ? 'animate-face' : 'hidden'}>
+                        <Image
+                            src={face}
+                            alt='image du résultat du lancer de pièce'
+                            width={250}
+                            height={250}
+                            className={'coinFlipPage__img'}
+                        />
+                    </div>
+                    <div className={isFlipping ? 'animate-pile' : 'hidden'}>
+                        <Image
+                            src={pile}
+                            alt='image du résultat du lancer de pièce'
+                            width={250}
+                            height={250}
+                            className={'coinFlipPage__img'}
+                        />
+                    </div>
+                    <Image
+                        src={require(`../images/${result}`)}
+                        alt='image du résultat du lancer de pièce'
+                        width={250}
+                        height={250}
+                        className={isFlipping ? 'hidden' : 'coinFlipPage__img'}
+                    />
+                </div>
                 <button onClick={flipCoin}>Lancez la pièce</button>
             </div>
             <Footer />
