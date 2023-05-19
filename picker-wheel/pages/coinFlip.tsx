@@ -43,30 +43,30 @@ export default function CoinFlip() {
                     <div className={isFlipping ? 'animate-face' : 'hidden'}>
                         <Image
                             src={face}
-                            alt='image du résultat du lancer de pièce'
-                            width={250}
-                            height={250}
+                            alt='image de pièce coté face'
+                            width={350}
+                            height={350}
                             className={'coinFlipPage__img'}
                         />
                     </div>
                     <div className={isFlipping ? 'animate-pile' : 'hidden'}>
                         <Image
                             src={pile}
-                            alt='image du résultat du lancer de pièce'
-                            width={250}
-                            height={250}
+                            alt='image de pièce coté pile'
+                            width={350}
+                            height={350}
                             className={'coinFlipPage__img'}
                         />
                     </div>
                     <Image
                         src={require(`../images/${result}`)}
                         alt='image du résultat du lancer de pièce'
-                        width={250}
-                        height={250}
+                        width={350}
+                        height={350}
                         className={isFlipping ? 'hidden' : 'coinFlipPage__img'}
                     />
                 </div>
-                <button onClick={flipCoin}>Lancez la pièce</button>
+                <button className='coinFlipPage__btn' onClick={flipCoin}>Lancez la pièce</button>
             </div>
             <Footer />
         </div>
