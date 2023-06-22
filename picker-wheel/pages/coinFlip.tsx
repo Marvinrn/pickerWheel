@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import face from '../images/Face.png'
 import pile from '../images/Pile.png'
+import HeadTitle from '@/components/HeadTitle'
 
 export default function CoinFlip() {
     const [result, setResult] = useState<string>('Face.png')
@@ -36,6 +37,7 @@ export default function CoinFlip() {
 
     return (
         <div className='coinFlipPage'>
+            <HeadTitle title="PickerWheel - Lance la Pièce" description='Jouez à notre jeu de pile ou face classique sur PickerWheel. Lancez une pièce virtuelle et testez votre chance. Que ce soit pour des décisions simples ou pour ajouter une touche de hasard à votre journée, notre jeu de pile ou face vous offre un divertissement rapide et amusant.' />
             <NavBar />
             <h1>Pile ou Face</h1>
             <div className='coinFlipPage__container'>

@@ -1,12 +1,14 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import colorWheel from '../images/colorWheel.png'
-import coin from '../images/euro-dynamic-color.png'
+import colorWheel from '../images/colorWheel2.png'
+import coin from '../images/euro-dynamic-color2.png'
+import HeadTitle from "@/components/HeadTitle"
 
 export default function Home() {
   return (
     <>
+      <HeadTitle title="PickerWheel - Accueil" description="Bienvenue sur PickerWheel ! Explorez notre site unique composé de deux parties distinctes. Utilisez notre roue pour effectuer des choix parmi vos options personnalisées, et divertissez-vous avec notre jeu classique de pile ou face. Découvrez des réponses amusantes et aléatoires en un seul clic !" />
       <main className="homePage">
         <div className="homePage__container">
           <div className="homePage__tabs">
@@ -21,7 +23,7 @@ export default function Home() {
                 <div className="box__content">
                   <Image className="box__image" src={colorWheel} alt="image de roue" width={250} height={250} />
                   <h2>Picker Wheel</h2>
-                  <p>Vous avez besoin de faire un tirage au sort ludique parmis plusieurs choix ? Faites donc tourner la roue et elle decidra de manière totalement aléatoire et sans tricherie du grand gagnant!!</p>
+                  <p>Vous souhaitez organiser un tirage au sort amusant parmi différentes options ? Faites tourner la roue et elle déterminera, de manière totalement aléatoire et équitable, le grand gagnant, sans aucune tricherie!!</p>
                   <Link href={"/pickerWheel"}><button className="pickerWheelBtn">Faites tourner la roue ! </button></Link>
                 </div>
               </div>
@@ -29,7 +31,7 @@ export default function Home() {
                 <div className="box__content">
                   <Image className="box__image" src={coin} alt="image de pièce" width={250} height={250} />
                   <h2>Pile ou Face</h2>
-                  <p>Si vous avez du mal a prendre une decision, laissez donc le hasard choisir à votre place et lancez la pièce !! Le pile ou face peut aussi servir pour vous departager en cas de dilemme {'"'}Vous ne savez pas qui doit manger la dernière part de gateau entre vous et votre amis ? Lancez donc la pièce et le hasard decidera du vainqueur !!{'"'} .</p>
+                  <p>Si vous êtes confronté à des difficultés pour prendre une décision, confiez-la au hasard et lancez une pièce ! Le jeu de pile ou face peut également être utilisé pour résoudre un dilemme : {'"'}Vous ne savez pas qui devrait manger la dernière part de gâteau entre vous et votre ami ? Laissez donc la pièce décider du gagnant!{'"'}</p>
                   <Link href={"/coinFlip"}><button className="coinFlipBtn">Lancez la pièce!</button></Link>
                 </div>
               </div>

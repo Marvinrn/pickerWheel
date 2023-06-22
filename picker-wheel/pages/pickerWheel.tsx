@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import WheelComponent from '../components/WheelComponent'
+import HeadTitle from '@/components/HeadTitle'
 
 export default function PickerWheel() {
     const [inputValue, setInputValue] = useState("")
@@ -53,6 +54,7 @@ export default function PickerWheel() {
 
     return (
         <main className='wheelPage'>
+            <HeadTitle title="PickerWheel - Lance la Roue" description='Utilisez notre outil PickerWheel pour prendre des décisions en toute simplicité. Personnalisez les options et laissez la roue effectuer le choix à votre place. Que ce soit pour des jeux, des tirages au sort ou des décisions rapides, notre roue vous aidera à trouver la réponse sans effort.' />
             < NavBar />
             <h1>Picker Wheel</h1>
             <div className='wheelPage__container'>
