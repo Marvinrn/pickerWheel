@@ -20,6 +20,11 @@
         height: 80%;
         border-radius: 25px;
 
+        @media(max-width: 900px) {
+            flex-direction: column;
+            width: 90%;
+        }
+
     }
 
     &__promptSide {
@@ -33,6 +38,10 @@
         overflow: scroll;
         scrollbar-color: #b20a2c;
         scrollbar-track-color: #17202a;
+
+        @media(max-width: 900px) {
+            width: 100%;
+        }
 
         &::-webkit-scrollbar {
             width: 3px;

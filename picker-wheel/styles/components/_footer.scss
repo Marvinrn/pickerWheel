@@ -8,3 +8,11 @@
 .footer--bg {
     background: linear-gradient(90deg, #b20a2c, #cf9ca6);
 }
+
+.footer--CoinFLipPage {
+    @media (max-width: 650px) {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+}

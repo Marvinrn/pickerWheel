@@ -11,7 +11,7 @@ export default function Footer() {
 
                 </div>
                 :
-                <div className='footer'>
+                <div className='footer footer--CoinFLipPage'>
 
                 </div>
             }
