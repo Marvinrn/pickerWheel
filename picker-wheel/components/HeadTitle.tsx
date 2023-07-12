@@ -11,7 +11,7 @@ const HeadTitle: React.FC<HeadTitleProps> = ({ title, description }) => {
         <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
-            {/* Ajoutez d'autres balises <meta>, <link>, etc. si nécessaire */}
+            <link rel="icon" href="../public/pickerWheel.png" />
         </Head>
     );
 };
