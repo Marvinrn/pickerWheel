@@ -45,6 +45,10 @@ $debug: false;
             cursor: pointer;
             transition: 0.5s;
         }
+
+        @media(max-width: 650px) {
+            bottom: 10px;
+        }
     }
 
     &__content {
@@ -153,6 +157,7 @@ $debug: false;
 
             .coinFlipBtn {
                 background: linear-gradient(90deg, #4e54c8, #8f94fb);
+                margin-bottom: 50px;
 
                 &:before,
                 &:after {
