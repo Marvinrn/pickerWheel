@@ -11,7 +11,7 @@ const HeadTitle: React.FC<HeadTitleProps> = ({ title, description }) => {
         <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
-            <link rel="icon" href="../public/pickerWheel.png" />
+            {/* <link rel="icon" href="/pickerWheel.png" /> */}
         </Head>
     );
 };
